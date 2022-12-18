@@ -4,12 +4,12 @@ img = imread('coloredchips.png');
 A = rgb2gray(img); %Converting Image to gray scale.
 Im=A;
 k= input("Enter the value of k: ");
-%% Initialize
+% Initialize
 A = double(A(:).');  % Reshaping the image
 imsize = numel(A);
 C = A(randperm(imsize, k));  % Random selection of Initial Cluster Centres
 
-%% Cluster
+% Cluster
 C2 = zeros(size(C,2),1).';  % Creating blank array to store new Centres after 1 Iteration
 Ak = zeros(size(A,2),1).';
 Bv = 1;  % Break value condition; if 0 then we have the final cluster 
@@ -22,7 +22,7 @@ while(Bv==1)
         Ak(i) = C(L);
     end
     Afinal = [A.' Ak.'];  % Matrix with all members and their assigned clusters
-    %% Finds New Cluster Centres
+    % Finds New Cluster Centres
     for o=1:size(C,2)
         idx = Afinal(:,2)==C(o);
         C2(o) = floor(mean(Afinal(idx,1)));
