@@ -3,7 +3,7 @@ close all;
 img = imread('coloredchips.png');
 A = rgb2gray(img); %Converting Image to gray scale.
 
-%% Iterative Global Thresholding
+% Iterative Global Thresholding
 T= input("Enter the initial threshold value of T: ");
 delta_T= input("Enter the value of delta_T: ");
 dTn=1;
@@ -28,9 +28,9 @@ while(dTn>delta_T)
     T=nT;
     n=n+1;
 end
-%% Segmenting Using Final Threshold value
-for i = 1:x
-        for j= 1:y
+% Segmenting Using Final Threshold value
+for i =1:1:x
+        for j=1:1:y
             if(A(i,j)>T)
                 r(i,j)=255;
             else 
@@ -38,7 +38,7 @@ for i = 1:x
             end
         end
 end
-%% Displaying Segmented Image
+% Displaying Segmented Image
 subplot(121)
 imshow(A)
 title('Input Image')
