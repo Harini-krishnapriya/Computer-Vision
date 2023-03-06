@@ -23,7 +23,7 @@ function filter = fwavg(x)
     [m,n] = size(p);
     for i =2:m-1
         for j = 2:n-1
-            p(i,j) = x(i-1,j-1); %Zero Padding
+            p(i,j) = x(i-1,j-1); 
         end
     end
     output= zeros(size(x));
